@@ -4,11 +4,16 @@ package com.leetcode.tree;
  * Created by windSnow on 2018/11/6.
  */
 public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
-    TreeNode(int x) {
+    public TreeNode(int x) {
         val = x;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(val);
     }
 }
