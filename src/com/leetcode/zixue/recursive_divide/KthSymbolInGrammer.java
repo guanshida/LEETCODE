@@ -1,4 +1,4 @@
-package com.leetcode.zixue.recursive;/**
+package com.leetcode.zixue.recursive_divide;/**
  * Created by windSnow on 2018/11/12.
  */
 
