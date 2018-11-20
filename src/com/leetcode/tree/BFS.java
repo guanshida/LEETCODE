@@ -8,9 +8,9 @@ import java.util.List;
  * 广度优先遍历
  * Created by windSnow on 2018/11/9.
  */
-public class TreeTraversal {
+public class BFS {
     public static void main(String[] args) {
-        TreeTraversal a = new TreeTraversal();
+        BFS a = new BFS();
         TreeNode n6 = new TreeNode(6);
         TreeNode n2 = new TreeNode(2);
         TreeNode n8 = new TreeNode(8);
