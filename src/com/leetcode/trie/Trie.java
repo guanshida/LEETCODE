@@ -86,6 +86,9 @@ public class Trie {
         }
         return true;
     }
+    public TrieNode getRoot() {
+        return root;
+    }
 
     /**
      * word 不为空
