@@ -57,10 +57,7 @@ public class ValidParenttheses {
 				}
 			}
 		}
-    	if(!stack.isEmpty()) {
-    		return false;
-    	}
-    	return true;
+    	return stack.isEmpty();
     }
     public boolean isPair(char pop, char c) {
 		if(pop == '(' && c == ')') {

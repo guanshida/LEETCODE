@@ -99,10 +99,12 @@ public class PowXN {
 
     //50. 实现 pow(x, n) ，即计算 x 的 n 次幂函数。 方法2：递归法  在csdn的收藏里
     public double myPow4(double x, int n) {
-        if(n == 0)
+        if (n == 0) {
             return 1;
-        if(n == 1)
+        }
+        if (n == 1) {
             return x;
+        }
 
         int t = n/2;//折半分成两部分，用来降低时间复杂度的
         if(n < 0) {//比如：x的-10次方 == x的-1次方的10次方
@@ -121,19 +123,11 @@ public class PowXN {
 
         if (n == 0)
             return 1;
-        if(n == 1)
-            return x;
-
 
         if (n < 0) {
-            x = 1 / x;
-            n = -n;
+            return myPow5(1 / x, -(n - 1)) * (1 / x);
         }
-        int t = n / 2;
-        double res = myPow5(x, t);
-        if (n % 2 == 0) {
-            return res * res;
-        }
-        return res * res * x;
+        double res = myPow5(x, n/2);
+        return (n & 1) == 0 ? res * res : res * res * x;
     }
 }

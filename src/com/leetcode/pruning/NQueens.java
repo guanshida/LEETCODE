@@ -78,16 +78,6 @@ public class NQueens {
             if (col[c] != 0 || sumSet.contains(i + c) || subSet.contains(i - c)) { // 已使用
                 continue;
             }
-            //为了
-//            int[] newCol = Arrays.copyOf(col, n);
-//            newCol[c] = 1;
-//            int[] newRow = Arrays.copyOf(row, n);
-//            newRow[i] = c;
-//            HashSet<Integer> newSumSet = new HashSet<>(sumSet);
-//            newSumSet.add(i + c);
-//            HashSet<Integer> newSubSet = new HashSet<>(subSet);
-//            newSubSet.add(i - c);
-//            dg1(newRow, newCol, n, i + 1, list, newSumSet, newSubSet);
             //准备数据
             col[c] = 1;
             row[i] = c;
