@@ -52,4 +52,33 @@ public class ClimbingStairs {
 
         return cur;
     }
+
+
+    /**
+     * 200613： 每日一题，再来一遍。
+     * @param n
+     * @return
+     */
+    public int climbStairs(int n) {
+        int pre = 1;
+        int cur = 1;
+        int count = 1;
+        while (count++ < n) {
+            int temp = cur;
+            cur = cur + pre;
+            pre = temp;
+        }
+        return cur;
+
+    }
+
+
+
+
+
+
+
+
+
+
 }
