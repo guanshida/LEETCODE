@@ -182,4 +182,41 @@ public class Sum3 {
 		}
     	return list;
     }
+
+
+	/**
+	 * 解法二：再来一遍。
+	 * @param nums
+	 * @return
+	 */
+	public List<List<Integer>> threeSum(int[] nums) {
+		if (nums.length < 3) {
+			return new ArrayList<>();
+		}
+
+		List<List<Integer>> list = new ArrayList<>();
+		Map<Integer, Integer> map = new HashMap<>();
+		Set<String> set = new HashSet<>();
+		for (int i = 0; i < nums.length; i++) {
+			map.put(nums[i], i);
+		}
+		for (int i = 0; i < nums.length; i++) {
+			for (int j = i + 1; j < nums.length; j++) {
+				int target = 0 - nums[i] - nums[j];
+				if (map.containsKey(target) && map.get(target) != i && map.get(target) != j) {
+
+					List<Integer> l = new ArrayList<>();
+					l.add(nums[i]);
+					l.add(nums[j]);
+					l.add(target);
+					Collections.sort(l);
+					if (!set.contains(l.get(0) + "," + l.get(1))) {
+						list.add(l);
+						set.add(l.get(0) + "," + l.get(1));
+					}
+				}
+			}
+		}
+		return list;
+	}
 }
