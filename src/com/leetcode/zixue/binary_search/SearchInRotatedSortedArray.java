@@ -23,10 +23,10 @@ package com.leetcode.zixue.binary_search;
  **/
 public class SearchInRotatedSortedArray {
     public static void main(String[] args) {
-        int[] nums = new int[]{1,3,5};
         SearchInRotatedSortedArray a = new SearchInRotatedSortedArray();
-        int search = a.search(nums, 3);
-        System.out.println(search);
+        System.out.println(a.search2(new int[]{1,3,5}, 3));
+
+        System.out.println(a.search3(new int[]{3,1},1));
     }
 
     /**
@@ -36,11 +36,13 @@ public class SearchInRotatedSortedArray {
      * 解法二：找出旋转的节点。然后判断目标数再左面还是右面。然后使用二分查找。
      * Time: O(logn)       Space: O(1)
      *
+     * 解法三：将数组一分为二，其中一定有一个是有序的，另一个可能是有序，也能是部分有序。
+     * 此时有序部分用二分法查找。无序部分再一分为二，其中一个一定有序，另一个可能有序，可能无序。就这样循环.
      * @param nums
      * @param target
      * @return
      */
-    public int search(int[] nums, int target) {
+    public int search2(int[] nums, int target) {
         //找出旋转的节点。
         if (nums.length < 1) {
             return -1;
@@ -92,4 +94,34 @@ public class SearchInRotatedSortedArray {
         }
         return ret;
     }
+
+    public int search3(int[] nums, int target) {
+        int left = 0,right = nums.length - 1;
+
+        int mid;
+        while (left <= right) {
+            mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            }
+            if (nums[left] <= nums[mid]) {
+                // 左边有序
+                if (target >= nums[left] && target < nums[mid]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            } else {
+                // 右边有序
+                if (target >= nums[mid] && target <= nums[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+        return -1;
+
+    }
+
 }

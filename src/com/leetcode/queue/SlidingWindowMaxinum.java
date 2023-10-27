@@ -72,14 +72,7 @@ public class SlidingWindowMaxinum {
     		return new int[0];
     	}
         int[] result = new int[nums.length - k + 1];
-        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(k,new Comparator<Integer>() {
-
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				// TODO Auto-generated method stub
-				return o2 - o1;
-			}
-		});
+        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(k,Comparator.reverseOrder());
         for (int i = 0; i < k; i++) {
 			queue.add(nums[i]);
 		}
